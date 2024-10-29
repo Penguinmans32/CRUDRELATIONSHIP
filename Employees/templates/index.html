@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <h1>Links: Please Create First Job Title afterwards the Employee and Employment Terms</h1>
+    <ul>
+        {% for category, links in urls.items %}
+            <li>{{ category }}
+                <ul>
+                    {% for name, url in links.items %}
+                        <li><a href="{{ url }}">{{ name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ employee.id|default:"Create" }} Employee</title>
+</head>
+<body>
+    <h1>{{ employee.id|default:"Create" }} Employee</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+        <a href="{% url 'employee_list' %}">Cancel</a>
+    </form>
+</body>
+</html>

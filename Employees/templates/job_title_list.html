@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Titles</title>
+</head>
+<body>
+    <h1>Job Titles</h1>
+    <a href="{% url 'job_title_create' %}">Add Job Title</a>
+    <ul>
+        {% for job in job_titles %}
+            <li>{{ job.title }} -
+                <a href="{% url 'job_title_update' job.pk %}">Edit</a> -
+                <a href="{% url 'job_title_delete' job.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employment Terms</title>
+</head>
+<body>
+    <h1>Employment Terms</h1>
+    <a href="{% url 'employment_terms_create' %}">Add Employment Terms</a>
+    <ul>
+        {% for term in terms %}
+            <li>{{ term.employee.first_name }} {{ term.employee.last_name }} - {{ term.agreed_salary }} -
+                <a href="{% url 'employment_terms_update' term.pk %}">Edit</a> -
+                <a href="{% url 'employment_terms_delete' term.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
