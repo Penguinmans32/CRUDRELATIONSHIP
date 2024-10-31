@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'dbpayroll',
         'USER': 'root',
-        'PASSWORD': 'vanessgwapo',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '3306',
     }

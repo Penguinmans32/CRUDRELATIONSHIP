@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Salary Payment</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete the salary payment of "{{ object.employee }}" on {{ object.payment_date }}?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm</button>
+    </form>
+    <a href="{% url 'salary_payment_list' %}">Cancel</a>
+</body>
+</html>

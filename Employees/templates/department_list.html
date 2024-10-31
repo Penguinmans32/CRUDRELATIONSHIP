@@ -1,0 +1,22 @@
+<!-- departments/templates/departments/department_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Department List</title>
+</head>
+<body>
+    <h1>Department List</h1>
+    <a href="{% url 'department_create' %}">Add New Department</a> |
+    <a href="{% url 'department_history_create' %}">Add New History</a>
+    <ul>
+        {% for department in departments %}
+            <li>
+                {{ department.department_name }}
+                <a href="{% url 'department_update' department.pk %}">Edit</a>
+                <a href="{% url 'department_delete' department.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
