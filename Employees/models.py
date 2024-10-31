@@ -36,3 +36,17 @@ class EmploymentTerms(models.Model):
     def __str__(self):
         return f"{self.employee} - {self.agreed_salary}"
 
+class Department(models.Model):
+    department_name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.department_name
+
+class DepartmentHistory(models.Model):
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.employee} - {self.department}"

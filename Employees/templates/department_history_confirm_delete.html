@@ -1,0 +1,16 @@
+<!-- employees/templates/employees/department_history_confirm_delete.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete History</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete this history entry?</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'department_history_list' %}">Cancel</a>
+    </form>
+</body>
+</html>

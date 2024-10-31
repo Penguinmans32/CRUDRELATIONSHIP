@@ -1,5 +1,6 @@
 from django import forms
-from .models import Employee, JobTitle, EmploymentTerms
+from .models import Employee, JobTitle, EmploymentTerms, Department, DepartmentHistory
+
 
 class JobTitleForm(forms.ModelForm):
 
@@ -24,4 +25,14 @@ class EmploymentTermsForm(forms.ModelForm):
     salary_end_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     class Meta:
         model = EmploymentTerms
+        fields = '__all__'
+
+class DepartmentForm(forms.ModelForm):
+    class Meta:
+        model = Department
+        fields = '__all__'
+
+class DepartmentHistoryForm(forms.ModelForm):
+    class Meta:
+        model = DepartmentHistory
         fields = '__all__'
