@@ -8,7 +8,13 @@
     <a href="{% url 'employee_create' %}">Add Employee</a>
     <ul>
         {% for employee in employees %}
-            <li>{{ employee.first_name }} {{ employee.last_name }} -
+            <li>
+                <strong>{{ employee.first_name }} {{ employee.last_name }}</strong><br>
+                Job Title: {{ employee.job_title }}<br>
+                Email: {{ employee.email }}<br>
+                Date of Birth: {{ employee.date_of_birth }}<br>
+                City ID: {{ employee.cityId }}<br>
+                Employment Start: {{ employee.employment_start }}<br>
                 <a href="{% url 'employee_update' employee.pk %}">Edit</a> -
                 <a href="{% url 'employee_delete' employee.pk %}">Delete</a>
             </li>

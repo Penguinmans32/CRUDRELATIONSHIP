@@ -8,7 +8,10 @@
     <a href="{% url 'job_title_create' %}">Add Job Title</a>
     <ul>
         {% for job in job_titles %}
-            <li>{{ job.title }} -
+            <li>
+                <strong>{{ job.title }}</strong><br>
+                Start Date: {{ job.start_date }}<br>
+                End Date: {{ job.end_date }}<br>
                 <a href="{% url 'job_title_update' job.pk %}">Edit</a> -
                 <a href="{% url 'job_title_delete' job.pk %}">Delete</a>
             </li>
