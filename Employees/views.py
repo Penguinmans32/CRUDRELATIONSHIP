@@ -177,3 +177,10 @@ def department_history_delete(request, pk):
         history.delete()
         return redirect('department_history_list')
     return render(request, 'department_history_confirm_delete.html', {'history': history})
+def department_delete(request, pk):
+    department = get_object_or_404(Department, pk=pk)
+    if request.method == 'POST':
+        department.delete()
+        return redirect('department_list')
+    return render(request, 'department_confirm_delete.html', {'object': department})
+
