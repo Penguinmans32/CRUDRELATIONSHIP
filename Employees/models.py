@@ -24,7 +24,6 @@ class Employee(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
-
 class EmploymentTerms(models.Model):
     id = models.AutoField(primary_key=True)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name="employment_terms")
@@ -32,7 +31,41 @@ class EmploymentTerms(models.Model):
     salary_start_date = models.DateField()
     salary_end_date = models.DateField()
 
-
     def __str__(self):
         return f"{self.employee} - {self.agreed_salary}"
+
+class Department(models.Model):
+    department_name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.department_name
+
+class DepartmentHistory(models.Model):
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.employee} - {self.department}"
+
+class SalaryPayment(models.Model):
+    id = models.AutoField(primary_key=True)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='salary_payments')
+    salary = models.IntegerField()
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.employee} - {self.salary} ({self.start_date} to {self.end_date})"
+
+
+class WorkingHours(models.Model):
+        id = models.AutoField(primary_key=True)
+        employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name="working_hours")
+        start_time = models.TimeField()
+        end_time = models.TimeField()
+
+        def __str__(self):
+            return f"{self.employee} - {self.start_time} to {self.end_time}"
 

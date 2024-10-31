@@ -1,0 +1,17 @@
+<!-- employees/templates/employees/department_history_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ form.instance.pk|yesno:"Edit History,New History" }}</title>
+</head>
+<body>
+    <h1>{{ form.instance.pk|yesno:"Edit History,New History" }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+        <a href="{% url 'department_history_list' %}">Cancel</a>
+    </form>
+</body>
+</html>

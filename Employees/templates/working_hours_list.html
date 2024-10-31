@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Working Hours List</title>
+</head>
+<body>
+    <h1>Working Hours List</h1>
+    <a href="{% url 'working_hours_create' %}">Add New Working Hours</a>
+    <ul>
+        {% for working_hour in working_hours %}
+            <li>
+                {{ working_hour.employee_name }} - {{ working_hour.hours }} hours
+                <a href="{% url 'working_hours_update' working_hour.pk %}">Edit</a>
+                <a href="{% url 'working_hours_delete' working_hour.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
